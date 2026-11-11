@@ -1,0 +1,257 @@
+/* =========================================
+   1. FONT & RESET
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Background gradasi maroon gelap ke cokelat kemerahan */
+    background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* =========================================
+   2. CARD UTAMA (Container)
+   ========================================= */
+.container {
+    width: 100%;
+    max-width: 520px;
+    background: #fffafb; /* Putih dengan hint merah muda sangat tipis */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid #e0c3c3;
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #800000; /* Warna Maroon */
+}
+
+/* =========================================
+   3. FORM INPUT
+   ========================================= */
+input, button {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1.5px solid #d9baba;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.25s ease;
+    background: #fff;
+}
+
+input:focus {
+    border-color: #800000;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.15);
+}
+
+button {
+    background: #800000;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+button:hover {
+    background: #5c0000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(128, 0, 0, 0.3);
+}
+
+/* =========================================
+   4. DAFTAR BARANG (List)
+   ========================================= */
+ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1.5px solid #f0e1e1;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+li:hover {
+    border-color: #c97c7c;
+    box-shadow: 0 4px 12px rgba(128, 0, 0, 0.08);
+}
+
+.info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nama {
+    font-weight: 500;
+    font-size: 15px;
+    color: #333;
+}
+
+.harga {
+    font-size: 12.5px;
+    color: #800000; /* Harga dibuat maroon agar senada */
+    font-weight: 500;
+}
+
+/* =========================================
+   5. FITUR CENTANG & EFEK BELI
+   ========================================= */
+.check {
+    text-decoration: none;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.check:hover {
+    transform: scale(1.15);
+}
+
+/* Efek jika barang sudah dibeli */
+.sudah-beli {
+    background: #faf0f0;
+    opacity: 0.8;
+}
+
+.sudah-beli .nama {
+    text-decoration: line-through;
+    color: #b08a8a;
+}
+
+/* =========================================
+   6. TOMBOL AKSI (EDIT & HAPUS)
+   ========================================= */
+.aksi {
+    display: flex;
+    gap: 6px;
+}
+
+.edit, .hapus {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    width: auto;
+    margin: 0;
+}
+
+/* Tombol Edit (Warna Emas/Kuning Senada dengan Maroon) */
+.edit {
+    background: #f7e1d7;
+    color: #8c5a2b;
+}
+
+.edit:hover {
+    background: #e8cbbd;
+    transform: translateY(-1px);
+}
+
+/* Tombol Hapus (Warna Maroon Muda/Merah) */
+.hapus {
+    background: #b22222;
+    color: #fff;
+}
+
+.hapus:hover {
+    background: #8b1a1a;
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   7. MODAL EDIT
+   ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 0, 0, 0.6); /* Overlay kemerahan gelap */
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #fffafb;
+    padding: 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.25s ease;
+    border: 1px solid #e0c3c3;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px;
+    color: #800000;
+}
+
+.btn-batal {
+    background: #a9a9a9 !important;
+}
+
+.btn-batal:hover {
+    background: #808080 !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   8. TAMPILAN JIKA KOSONG
+   ========================================= */
+.kosong {
+    text-align: center;
+    color: #b08a8a;
+    justify-content: center;
+    padding: 20px;
+    border: none !important;
+    background: transparent !important;
+}
